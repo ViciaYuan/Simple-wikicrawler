@@ -92,3 +92,11 @@ USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_4) AppleWebKit/537.36
 ITEM_PIPELINES = {"wikicrawler.pipelines.FilePipeline": 300,
                  }
 ROBOTSTXT_OBEY = False
+
+#Mysql数据库的配置信息
+MYSQL_HOSTS = '127.0.0.1' #or localhost
+MYSQL_DB = 'testdb' #数据库名字
+MYSQL_USER = 'root'  #数据库账号
+MYSQL_PASSWORD = '123456' #数据库密码
+MYSQL_PORT = 3306  #数据库端口
+CHARSET='utf8'
