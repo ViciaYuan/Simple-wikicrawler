@@ -39,5 +39,6 @@ PRIMARY KEY (url)
 !!!mysql connect success
 Insert error: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '),'',{},'25 May 2015,23:48',(),('Bromeliaceae cultivar','Aechmea stubs'))' at line 1")
 ``` 
-关于mysql insert error 1064 [这篇文章](https://www.inmotionhosting.com/support/website/database-troubleshooting/error-1064)讲得很清楚....但是我还是没有改出来....
+连接数据库成功，但插入数据失败。关于mysql Insert error 1064 [这篇文章](https://www.inmotionhosting.com/support/website/database-troubleshooting/error-1064)讲得很清楚，但是还是没有改出来...
+建表有问题，得再改改orz
 
