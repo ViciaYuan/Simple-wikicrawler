@@ -1,44 +1,32 @@
 # Simple-wikicrawler
-A simple crawler which is used to attain wiki entries.
+Use Scrapy to crawl wikipedia entries, and store the items in MySQL
 
-20180110  update: 添加Mysql存数据
+环境： Miniconda3, python3.6, mysql-5.7.20
 
-环境： python3.6, mysql-5.7.20
+框架、模块： Scrapy1.5, pymysql
 
-python操作数据库的模块： pymysql最新
+数据库操作
 
-数据库名：testdb
+use wiki_entries
 
-建表的语句：
+建表
 ``` 
-CREATE TABLE wiki_1(
-url VARCHAR(2000) NOT NULL,
-names VARCHAR(2000),
-summary VARCHAR(2000),
-info VARCHAR(2000),
-content VARCHAR(2000),
-uptime VARCHAR(2000),
-refer VARCHAR(2000),
-label VARCHAR(2000),
-PRIMARY KEY (url)
-);
+CREATE TABLE `wiki_EN` (
+  `sequence` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `url` varchar(80) NOT NULL DEFAULT '',
+  `names` varchar(100) NOT NULL DEFAULT '',
+  `summary` text,
+  `info` text,
+  `content` text,
+  `uptime` varchar(30) NOT NULL DEFAULT '',
+  `refer` text,
+  `label` varchar(500) DEFAULT '',
+  PRIMARY KEY (`sequence`)
+) ENGINE=InnoDB AUTO_INCREMENT=10660 DEFAULT CHARSET=utf8;
 ``` 
+wiki_EN为英文维基百科， wiki_ZH为中文维基百科
 
-报错：
-``` 
-2018-01-10 21:47:33 [scrapy.core.scraper] DEBUG: Scraped from <200 https://en.wikipedia.org/wiki/Aechmea_%27Black_Jack%27>
-{'content': {},
- 'info': '',
- 'label': ['Bromeliaceae cultivar', 'Aechmea stubs'],
- 'name': "Aechmea 'Black Jack'",
- 'refer': [],
- 'summary': [],
- 'uptime': '25 May 2015,23:48',
- 'url': 'https://en.wikipedia.org/wiki/Aechmea_%27Black_Jack%27'}
-[]
-!!!mysql connect success
-Insert error: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '),'',{},'25 May 2015,23:48',(),('Bromeliaceae cultivar','Aechmea stubs'))' at line 1")
-``` 
-连接数据库成功，但插入数据失败。关于mysql Insert error 1064 [这篇文章](https://www.inmotionhosting.com/support/website/database-troubleshooting/error-1064)讲得很清楚，但是还是没有改出来...
-建表有问题，得再改改orz
+两张表分别存储对应网站的爬虫结果
+
+
 
